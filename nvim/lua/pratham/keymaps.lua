@@ -95,3 +95,7 @@ autocmd("FileType", { pattern = "c",
 	callback = function()
 		vim.api.nvim_buf_set_keymap(0,"n","<C-c>",":split<CR>:te gcc -Wshadow -Wall % -g -D_GLIBCXX_DEBUG && ./a.out<CR>i",opts)
 	end})
+autocmd("FileType", { pattern = "rust",
+	callback = function()
+		vim.api.nvim_buf_set_keymap(0,"n","<C-c>",":split<CR>:te rustc % -g && ./%:t:r<CR>i",opts)
+	end})
